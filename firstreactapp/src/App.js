@@ -1,9 +1,6 @@
-
-
-function App() {
+function MyComponent() {
   return (
-   <h1>First React App | Salman</h1>
-  );
+    <h1>New React Component</h1>
+  )
 }
-
-export default App;
+export default MyComponent

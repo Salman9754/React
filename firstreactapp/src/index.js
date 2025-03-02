@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MyComponent from './App';
+import MyBtn from './App';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <MyComponent />
+  <>
+  <MyBtn text='Click me' heading='First Heading'/>
+  <MyBtn text='Second button' heading='Second Heading' />
+  </>
+  
 );
 

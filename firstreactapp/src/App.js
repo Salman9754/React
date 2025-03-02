@@ -1,6 +1,9 @@
-function MyComponent() {
+function MyBtn({ text ,heading}) {
   return (
-    <h1>New React Component</h1>
+    <>
+      <h1>{heading}</h1>
+      <button>{text}</button>
+    </>
   )
 }
-export default MyComponent
+export default MyBtn

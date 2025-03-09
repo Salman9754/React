@@ -6,7 +6,7 @@ import { useState } from "react";
 function App() {
   let [counter, setCount] = useState(0);
   function addValue() {
-    if (counter >= 0) {
+    if (counter >= 0 && counter <20) {
       counter = counter + 1;
       setCount(counter);
       console.log(counter);

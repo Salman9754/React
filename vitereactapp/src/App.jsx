@@ -1,12 +1,22 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { useState } from "react";
+import { useState} from "react";
+// import { useEffect } from "react";
+// useEffect(() => {
+//   first
+
+//   return () => {
+//     second
+//   }
+// }, [third])
+
+
 
 function App() {
   let [counter, setCount] = useState(0);
   function addValue() {
-    if (counter >= 0 && counter <20) {
+    if (counter >= 0 && counter < 20) {
       counter = counter + 1;
       setCount(counter);
       console.log(counter);

@@ -5,6 +5,7 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const btnRef = useRef();
   const a = useRef(0);
 
   useEffect(() => {
@@ -12,6 +13,7 @@ function App() {
   });
   useEffect(() => {
     // console.log('I will run First Time');
+    btnRef.current.style.backgroundColor = "red";
   }, []);
   useEffect(() => {
     // console.log('I will run when setCount state Changes');
@@ -31,7 +33,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button ref={btnRef} onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>

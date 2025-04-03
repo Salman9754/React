@@ -1,45 +1,34 @@
 import { useState, useEffect, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const btnRef = useRef();
-  const a = useRef(0);
-
+  const [cards, setcards] = useState([]);
+  async function cardsData() {
+    let data = await fetch("https://jsonplaceholder.typicode.com/posts");
+    let dataJson = await data.json();
+    setcards(dataJson);
+    console.log(dataJson);
+  }
   useEffect(() => {
-    // console.log('I will run Every Time');
-  });
-  useEffect(() => {
-    // console.log('I will run First Time');
-    btnRef.current.style.backgroundColor = "red";
+    cardsData();
   }, []);
-  useEffect(() => {
-    // console.log('I will run when setCount state Changes');
-    a.current = a.current + 1;
-    console.log(a.current);
-  }, [count]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <div className="row">
+          <div className="Mycard d-flex flex-wrap">
+            {cards.map((item) => {
+              return (
+                <div key={item.id} className="card col-4">
+                  <h6>{item.title}</h6>
+                  <p>{item.body}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button ref={btnRef} onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
